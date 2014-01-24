@@ -1,0 +1,33 @@
+{
+    "name": "Lychee",
+    "id": "lychee",
+    "description": {
+        "en": "Self-hosted photo-management done right",
+        "fr": "Gestionnaire de photos autohebergé"
+    },
+    "developer": {
+        "name": "titoko",
+        "email": "titoko@titoko.fr",
+        "url": "http://dev.yunohost.org"
+    },
+    "multi_instance": "true",
+    "arguments": {
+        "install" : [
+        {
+            "name": "domain",
+            "ask": {
+                "en": "Choose a domain for Lychee"
+            },
+            "example": "domain.org"
+        },
+        {
+            "name": "path",
+            "ask": {
+                "en": "Choose a path for lychee"
+            },
+            "example": "/lychee",
+            "default": "/lychee"
+        }
+        ]
+    }
+}
