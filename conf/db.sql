@@ -3,7 +3,7 @@ CREATE TABLE `lychee_settings` (
     `value` varchar(50) DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-NSERT INTO `lychee_settings` (`key`, `value`)
+INSERT INTO `lychee_settings` (`key`, `value`)
 VALUES
 ('username',''),
 ('password',''),

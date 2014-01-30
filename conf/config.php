@@ -15,4 +15,4 @@ $dbUser = 'NAMETOCHANGE'; //Username of the database
 $dbPassword = 'PWDTOCHANGE'; //Password of the Database
 $dbName = 'NAMETOCHANGE'; //Database name
 
-?
+?>
