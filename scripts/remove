@@ -1,0 +1,16 @@
+#!/bin/bash
+
+db_user=lychee
+db_name=lychee
+root_pwd=$(sudo cat /etc/yunohost/mysql)
+domain=$(sudo yunohost app setting lychee domain)
+
+mysql -u root -p$root_pwd -e "DROP DATABASE $db_name ; DROP USER $db_user@localhost ;"
+sudo rm -rf /var/www/lychee
+sudo rm -f /etc/nginx/conf.d/$domain.d/lychee.conf
+sudo rm -f /etc/php5/fpm/pool.d/lychee.conf
+sudo rm -f /etc/php5/fpm/conf.d/20-lychee.ini
+
+sudo service php5-fpm restart
+sudo service nginx reload
+sudo yunohost app ssowatconf
