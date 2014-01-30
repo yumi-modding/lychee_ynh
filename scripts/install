@@ -32,13 +32,13 @@ sudo cp ../conf/php-fpm.ini /etc/php5/fpm/conf.d/20-lychee.ini
 sudo chown -R www-data: $final_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
-sudo sed -i "s@NAMETOCHANGE@lychee@g" /etc/php5/fpm/pool.d/lychee.conf
 if [ -z "$path" ]; then
 path="/"
 fi
+sudo sed -i "s@NAMETOCHANGE@lychee@g" /etc/php5/fpm/pool.d/lychee.conf
 sudo sed -i "s@PATHTOCHANGE@$path@g" ../conf/nginx.conf
 sudo sed -i "s@ALIASTOCHANGE@$final_path/@g" ../conf/nginx.conf
-sudo sed -i "s@NAMETOCHANGE@lychee/@g" ../conf/nginx.conf
+sudo sed -i "s@NAMETOCHANGE@lychee@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/lychee.conf
 
 
