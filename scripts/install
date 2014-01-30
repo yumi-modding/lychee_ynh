@@ -3,11 +3,20 @@
 # Retrieve arguments
 domain=$1
 path=$2
+user=$3
+user_pwd=$4
+
+ls /home | grep $user
+if [[ ! $? -eq 0 ]]; then
+    echo "Wrong user"
+    exit 1
+fi
+
 
 # Check domain/path availability
 sudo yunohost app checkurl $domain$path -a lychee
 if [[ ! $? -eq 0 ]]; then
-exit 1
+    exit 1
 fi
 #db
 db_pwd=$(dd if=/dev/urandom bs=1 count=200 2> /dev/null | tr -c -d '[A-Za-z0-9]' | sed -n 's/\(.\{24\}\).*/\1/p')
@@ -33,7 +42,7 @@ sudo chown -R www-data: $final_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
 if [ -z "$path" ]; then
-path="/"
+    path="/"
 fi
 sudo sed -i "s@NAMETOCHANGE@lychee@g" /etc/php5/fpm/pool.d/lychee.conf
 sudo sed -i "s@NAMETOCHANGE@lychee@g" $final_path/php/config.php
@@ -43,6 +52,7 @@ sudo sed -i "s@ALIASTOCHANGE@$final_path/@g" ../conf/nginx.conf
 sudo sed -i "s@NAMETOCHANGE@lychee@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/lychee.conf
 
+sudo mysql -u $db_user -p$db_pwd lychee "UPDATE lychee_settings SET value = $user  WHERE `key` = 'username';UPDATE lychee_settings SET value = $user_pwd WHERE `key` = 'password' "
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service php5-fpm restart
