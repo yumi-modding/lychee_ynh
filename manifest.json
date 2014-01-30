@@ -27,20 +27,20 @@
             },
             "example": "/lychee",
             "default": "/lychee"
-        }
+        },
         {
             "name": "admin_user",
             "ask": {
                 "en": "Choose login of  admin user"
             },
-            "example": "johndoe"
+            "example": "johndoe",
             "default": "admin"
-        }
+        },
         {
             "name": "admin_pwd",
             "ask": {
                 "en": "Choose password for admin user"
-            },
+            }
         }
         ]
     }
