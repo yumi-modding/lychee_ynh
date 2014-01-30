@@ -27,7 +27,7 @@
             },
             "example": "/lychee",
             "default": "/lychee"
-        }
+        },
         {
             "name": "admin_user",
             "ask": {
@@ -35,7 +35,7 @@
             },
             "example": "johndoe"
             "default": "admin"
-        }
+        },
         {
             "name": "admin_pwd",
             "ask": {
