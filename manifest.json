@@ -40,7 +40,7 @@
             "name": "admin_pwd",
             "ask": {
                 "en": "Choose password for admin user"
-            },
+            }
         }
         ]
     }
