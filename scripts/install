@@ -6,7 +6,7 @@ path=$2
 user=$3
 user_pwd=$4
 
-user_pwd=$(echo $user_pwd |md5sum -b)
+user_pwd=$(echo -n '$user_pwd' |md5sum)
 
 ls /home | grep $user
 if [[ ! $? -eq 0 ]]; then
