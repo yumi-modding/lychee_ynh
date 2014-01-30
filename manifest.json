@@ -33,7 +33,7 @@
             "ask": {
                 "en": "Choose login of  admin user"
             },
-            "example": "johndoe"
+            "example": "johndoe",
             "default": "admin"
         },
         {
