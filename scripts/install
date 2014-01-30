@@ -6,6 +6,8 @@ path=$2
 user=$3
 user_pwd=$4
 
+user_pwd=$(echo $user_pwd |md5sum -b)
+
 ls /home | grep $user
 if [[ ! $? -eq 0 ]]; then
     echo "Wrong user"
