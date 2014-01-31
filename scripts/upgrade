@@ -10,15 +10,20 @@ db_pwd=$(sudo yunohost app setting lychee mysqlpwd)
 path=${path%/}
 
 # Copy files to the right place
+data_path=/home/yunohost.app/lychee/
 final_path=/var/www/lychee
+sudo mkdir -p $data_path
 sudo mkdir -p $final_path
 sudo cp -r ../source/* $final_path
 sudo cp ../conf/php-fpm.conf /etc/php5/fpm/pool.d/lychee.conf
 sudo cp ../conf/php-fpm.ini /etc/php5/fpm/conf.d/20-lychee.ini
 sudo cp ../conf/config.php $final_path/php/
+sudo rm -R $final_path/uploads
+sudo ln -s $data_path $final_path/uploads
 
 # Set permissions to lychee directory
 sudo chown -R www-data: $final_path
+sudo chown -R www-data: $data_path
 
 # Modify Nginx configuration file and copy it to Nginx conf directory
 if [ -z "$path" ]; then
