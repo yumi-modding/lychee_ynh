@@ -59,7 +59,7 @@ view = {
 		},
 
 		mode: function(mode) {
-
+			
 			var albumID = album.getID();
 
 			switch (mode) {
@@ -72,6 +72,7 @@ view = {
 					lychee.header.removeClass("view");
 					$("#tools_albums, #tools_photo").hide();
 					$("#tools_album").show();
+					album.json.content === false ? $("#button_archive").hide() : $("#button_archive").show();
 					if (albumID==="s"||albumID==="f") {
 						$("#button_info_album, #button_trash_album, #button_share_album").hide();
 					} else if (albumID==="0") {
@@ -154,19 +155,25 @@ view = {
 				if (smartData===""&&albumsData==="") $("body").append(build.no_content("picture"));
 				else lychee.content.html(smartData + albumsData);
 
-				$("img").retina();
+				$("img[data-type!='svg']").retina();
 
 			},
 
 			title: function(albumID) {
 
 				var prefix = "",
+					longTitle = "",
 					title = albums.json.content[albumID].title;
 
 				if (albums.json.content[albumID].password) prefix = "<span class='icon-lock'></span> ";
-				if (title.length>18) title = title.substr(0, 18) + "...";
+				if (title.length>18) {
+					longTitle = title;
+					title = title.substr(0, 18) + "...";
+				}
 
-				$(".album[data-id='" + albumID + "'] .overlay h1").html(prefix + title);
+				$(".album[data-id='" + albumID + "'] .overlay h1")
+					.html(prefix + title)
+					.attr("title", longTitle);
 
 			},
 
@@ -249,17 +256,23 @@ view = {
 				});
 				lychee.content.html(photosData);
 
-				$("img").retina();
+				$("img[data-type!='svg']").retina();
 
 			},
 
 			title: function(photoID) {
 
-				var title = album.json.content[photoID].title;
+				var longTitle = "",
+					title = album.json.content[photoID].title;
 
-				if (title.length>18) title = title.substr(0, 18) + "...";
+				if (title.length>18) {
+					longTitle = title;
+					title = title.substr(0, 18) + "...";
+				}
 
-				$(".photo[data-id='" + photoID + "'] .overlay h1").html(title);
+				$(".photo[data-id='" + photoID + "'] .overlay h1")
+					.html(title)
+					.attr("title", longTitle);
 
 			},
 
@@ -375,7 +388,7 @@ view = {
 			view.header.mode("album");
 
 			// Make body scrollable
-			$("body").css("overflow", "scroll");
+			$("body").css("overflow", "auto");
 
 			// Disable Fullscreen
 			$(document)

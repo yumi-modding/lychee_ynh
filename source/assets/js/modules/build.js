@@ -24,18 +24,26 @@ build = {
 		if (!albumJSON) return "";
 
 		var album = "",
+			longTitle = "",
 			title = albumJSON.title;
 
-		if (title.length>18) title = albumJSON.title.substr(0, 18) + "...";
+		if (title.length>18) {
+			title = albumJSON.title.substr(0, 18) + "...";
+			longTitle = albumJSON.title;
+		}
+		
+		typeThumb0 = albumJSON.thumb0.split('.').pop();
+		typeThumb1 = albumJSON.thumb1.split('.').pop();
+		typeThumb2 = albumJSON.thumb2.split('.').pop();
 
 		album += "<div  class='album' data-id='" + albumJSON.id + "' data-password='" + albumJSON.password + "'>";
-		album +=	"<img src='" + albumJSON.thumb2 + "' width='200' height='200' alt='thumb'>";
-		album +=	"<img src='" + albumJSON.thumb1 + "' width='200' height='200' alt='thumb'>";
-		album +=	"<img src='" + albumJSON.thumb0 + "' width='200' height='200' alt='thumb'>";
+		album +=	"<img src='" + albumJSON.thumb2 + "' width='200' height='200' alt='thumb' data-type='" + typeThumb2 + "'>";
+		album +=	"<img src='" + albumJSON.thumb1 + "' width='200' height='200' alt='thumb' data-type='" + typeThumb1 + "'>";
+		album +=	"<img src='" + albumJSON.thumb0 + "' width='200' height='200' alt='thumb' data-type='" + typeThumb0 + "'>";
 		album +=	"<div class='overlay'>";
 
 		if (albumJSON.password&&!lychee.publicMode) album += "<h1><span class='icon-lock'></span> " + title + "</h1>";
-		else album += "<h1>" + title + "</h1>";
+		else album += "<h1 title='" + longTitle + "'>" + title + "</h1>";
 
 		album +=		"<a>" + albumJSON.sysdate + "</a>";
 		album +=	"</div>";
@@ -55,14 +63,18 @@ build = {
 		if (!photoJSON) return "";
 
 		var photo = "",
+			longTitle = "",
 			title = photoJSON.title;
 
-		if (title.length>18) title = photoJSON.title.substr(0, 18) + "...";
+		if (title.length>18) {
+			title = photoJSON.title.substr(0, 18) + "...";
+			longTitle = photoJSON.title;
+		}
 
 		photo += "<div class='photo' data-album-id='" + photoJSON.album + "' data-id='" + photoJSON.id + "'>";
 		photo +=	"<img src='" + photoJSON.thumbUrl + "' width='200' height='200' alt='thumb'>";
 		photo +=	"<div class='overlay'>";
-		photo +=		"<h1>" + title + "</h1>";
+		photo +=		"<h1 title='" + longTitle + "'>" + title + "</h1>";
 		photo +=		"<a>" + photoJSON.sysdate + "</a>";
 		photo +=	"</div>";
 
