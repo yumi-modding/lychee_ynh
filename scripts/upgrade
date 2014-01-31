@@ -20,7 +20,7 @@ sudo cp ../conf/php-fpm.conf /etc/php5/fpm/pool.d/lychee.conf
 sudo cp ../conf/php-fpm.ini /etc/php5/fpm/conf.d/20-lychee.ini
 sudo cp ../conf/config.php $final_path/php/
 sudo rm -R $final_path/uploads
-sudo ln -s $data_path $final_path/uploads
+sudo ln -s $data_path/uploads $final_path/uploads
 
 # Set permissions to lychee directory
 sudo chown -R www-data: $final_path
