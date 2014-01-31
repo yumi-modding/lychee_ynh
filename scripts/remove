@@ -10,7 +10,6 @@ sudo rm -rf /var/www/lychee
 sudo rm -f /etc/nginx/conf.d/$domain.d/lychee.conf
 sudo rm -f /etc/php5/fpm/pool.d/lychee.conf
 sudo rm -f /etc/php5/fpm/conf.d/20-lychee.ini
-sudo rm -rf /home/yunohost.app/lychee
 
 sudo service php5-fpm restart
 sudo service nginx reload
