@@ -7,9 +7,9 @@ user=$3
 user_pwd=$4
 user_pwd=$(echo -n $user_pwd | md5sum | cut -d ' ' -f 1)
 
-ls /home | grep $user
+sudo yunohost user list | python ../conf/user_list.py | grep "^$user$" >/dev/null
 if [[ ! $? -eq 0 ]]; then
-    echo "Wrong user"
+echo "Error : the chosen admin user does not exist"
     exit 1
 fi
 
