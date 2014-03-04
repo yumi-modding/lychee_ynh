@@ -18,7 +18,7 @@ sudo rm $final_path/uploads
 sudo cp -r ../source/* $final_path
 sudo cp ../conf/php-fpm.conf /etc/php5/fpm/pool.d/lychee.conf
 sudo cp ../conf/php-fpm.ini /etc/php5/fpm/conf.d/20-lychee.ini
-sudo cp ../conf/config.php $final_path/php/
+sudo cp ../conf/config.php $final_path/data/
 sudo rm -R $final_path/uploads
 sudo ln -s $data_path/uploads $final_path/uploads
 
@@ -31,5 +31,5 @@ if [ -z "$path" ]; then
     path="/"
 fi
 sudo sed -i "s@NAMETOCHANGE@lychee@g" /etc/php5/fpm/pool.d/lychee.conf
-sudo sed -i "s@NAMETOCHANGE@lychee@g" $final_path/php/config.php
-sudo sed -i "s@PWDTOCHANGE@$db_pwd@g" $final_path/php/config.php
+sudo sed -i "s@NAMETOCHANGE@lychee@g" $final_path/data/config.php
+sudo sed -i "s@PWDTOCHANGE@$db_pwd@g" $final_path/data/config.php
