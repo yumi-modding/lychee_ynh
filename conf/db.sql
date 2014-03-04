@@ -1,9 +1,9 @@
-CREATE TABLE `lychee_settings` (
+CREATE TABLE `lyche_settings` (
     `key` varchar(50) NOT NULL DEFAULT '',
     `value` varchar(50) DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO `lychee_settings` (`key`, `value`)
+INSERT INTO `lyche_settings` (`key`, `value`)
 VALUES
 ('username',''),
 ('password',''),
@@ -11,7 +11,7 @@ VALUES
 ('checkForUpdates','1'),
 ('sorting','ORDER BY id DESC');
 
-CREATE TABLE `lychee_albums` (
+CREATE TABLE `lyche_albums` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `title` varchar(50) NOT NULL,
     `description` varchar(1000) DEFAULT '',
@@ -21,7 +21,7 @@ CREATE TABLE `lychee_albums` (
     PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-CREATE TABLE `lychee_photos` (
+CREATE TABLE `lyche_photos` (
     `id` bigint(14) NOT NULL,
     `title` varchar(50) NOT NULL,
     `description` varchar(1000) NOT NULL DEFAULT '',
