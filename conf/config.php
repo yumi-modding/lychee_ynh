@@ -9,6 +9,8 @@
 
 if(!defined('LYCHEE')) exit('Error: Direct access is not allowed!');
 
+$configVersion = '2.1';
+
 // Database configurations
 $dbHost = 'localhost'; //Host of the Database
 $dbUser = 'NAMETOCHANGE'; //Username of the database
