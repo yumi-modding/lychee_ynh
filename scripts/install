@@ -61,7 +61,9 @@ sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/lychee.conf
 
 sudo sed -i "s@#user@$user@g" ../conf/postini.sh
 sudo sed -i "s@#pwd@$user_pwd@g" ../conf/postini.sh
-sudo sh ..conf/postini.sh
+sudo sed -i "s@#db_user@$db_user@g" ../conf/postini.sh
+sudo sed -i "s@#db_pwd@$db_pwd@g" ../conf/postini.sh
+sudo sh ../conf/postini.sh
 
 # Reload Nginx and regenerate SSOwat conf
 sudo service php5-fpm restart
