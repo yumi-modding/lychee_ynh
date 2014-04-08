@@ -1,6 +1,20 @@
+## v2.1.1
+
+Released March 20, 2014
+
+- `New` Delete albums with cmd + backspace
+- `New` Using iOS 7.1 minimal-ui
+- `Improved` Faster loading of single photos
+- `Improved` Faster and snappier animations
+- `Improved` Better dialog when clearing Unsorted
+- `Fixed` Warning when uploading images without EXIF-Data
+- `Fixed` Close upload on error
+
 ## v2.1
 
 Released March 4, 2014
+
+Important: You need to reenter your database credentials and set the correct rights for `data/`, when updating from a previous version.
 
 - `New` Multi-select (#32)
 - `New` Multi-folder import from server (#47)

@@ -33,7 +33,7 @@ These shortcuts will help you to use Lychee even faster. [Keyboard Shortcuts &#1
 
 ### Dropbox import
 
-In order to use the Dropbox import from your server, you need a valid drop-ins app key from [their website](https://www.dropbox.com/developers/apps/create). Lychee will ask you for this key, the first time you try to use the import. Want to change your code? Take a loot at [the settings](docs/Settings.md) of Lychee.
+In order to use the Dropbox import from your server, you need a valid drop-ins app key from [their website](https://www.dropbox.com/developers/apps/create). Lychee will ask you for this key, the first time you try to use the import. Want to change your code? Take a look at [the settings](docs/Settings.md) of Lychee.
 
 ### Twitter Cards
 
@@ -41,7 +41,7 @@ Lychee supports [Twitter Cards](https://dev.twitter.com/docs/cards) and [Open Gr
 
 ## Troubleshooting
 
-Take a look at the [FAQ](docs/FAQ.md) if you have problems.
+Take a look at the [FAQ](docs/FAQ.md) if you have problems. Discovered a bug? Please create an issue here on GitHub!
 
 ## Extensions
 

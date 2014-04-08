@@ -21,7 +21,7 @@ Lychee supports the latest versions of Google Chrome, Apple Safari, Mozilla Fire
 Thumbnails are chosen automatically by the photos you have starred and in the order you uploaded them. Star a photo inside an album to set it as a thumbnail.
 
 #### What is new?
-Take a look at the [Changelog](Changelog.md) to see whats new.
+Take a look at the [Changelog](Changelog.md) to see what's new.
 
 #### How can I backup my installation?
 To backup your Lychee installation you need to do the following steps:
@@ -34,11 +34,6 @@ To backup your Lychee installation you need to do the following steps:
 	- INSERT INTO lychee_photos_backup SELECT * FROM lychee_photos;
 	- CREATE TABLE lychee_settings_backup LIKE lychee_settings;
 	- INSERT INTO lychee_settings_backup SELECT * FROM lychee_settings;
-	
-#### How to update?
-
-1. Replace all files, excluding `uploads/`
-2. Open Lychee and enter your database details
 
 #### Can I upload videos?
 No. Video support is not planned.

@@ -7,7 +7,7 @@
 
 var lychee = {
 
-	version: "2.1",
+	version: "2.1.1",
 
 	api_path: "php/api.php",
 	update_path: "http://lychee.electerious.com/version/index.php",
@@ -102,6 +102,7 @@ var lychee = {
 			error: function(jqXHR, textStatus, errorThrown) {
 
 				lychee.error("Server error or API not found.", params, errorThrown);
+				upload.close(true);
 
 			}
 		});
