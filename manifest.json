@@ -46,20 +46,21 @@
             "default": "/lychee"
         },
         {
-            "name": "admin_user",
+            "name": "admin",
             "type": "user",            
             "ask": {
-                "en": "Choose login of  admin user",
-                "fr": "Choisissez l’administrateur"
+                "en": "Choose an admin user for lychee",
+                "fr": "Choisissez l’administrateur de lychee"
             },
             "example": "johndoe",
             "default": "admin"
         },
         {
-            "name": "admin_pwd",
+            "name": "password",
+            "type": "password",
             "ask": {
-                "en": "Choose password for admin user",
-                "fr": "Choisissez le mot de passe pour l’administrateur"
+                "en": "Choose an admin password for lychee",
+                "fr": "Choisissez un mot de passe administrateur pour lychee"
             }
         }
         ]
